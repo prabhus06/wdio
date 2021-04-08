@@ -1,3 +1,4 @@
 # Build directories
 allure-report
 reports
+node_modules
