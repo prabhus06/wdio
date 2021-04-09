@@ -20,3 +20,7 @@ Then(/^I should see a flash message saying (.*)$/, (message) => {
     expect(SecurePage.flashAlert).toHaveTextContaining(message);
 });
 
+
+When(/^I search for a keyword$/, () => {
+    LoginPage.login()
+});
