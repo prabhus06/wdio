@@ -5,11 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run ./config/wdio.conf.js --cucumberOpts.tagExpression='@wip' && npm run open-allure",
-    "open-allure": "allure generate reports/allure-results --clean && allure open"
+    "open-allure": "allure generate reports/allure-results --clean && allure open",
+    "lint": "eslint .",
+    "lint-fix": "estlint . --fix"
   },
   "keywords": [
-    "Automation",
-    "Webdriver"
+    "wdio",
+    "webdriver",
+    "webdriverio",
+    "cucumber",
+    "test",
+    "boilerplate",
+    "selenium"
   ],
   "author": "prabhu",
   "license": "ISC",
@@ -26,6 +33,9 @@
     "@wdio/sync": "^7.2.3",
     "allure-commandline": "^2.13.8",
     "chromedriver": "^89.0.0",
+    "eslint": "^7.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-wdio": "^7.0.0",
     "expect": "^26.6.2",
     "expect-webdriverio": "^2.0.1",
     "prettier": "^2.2.1",
