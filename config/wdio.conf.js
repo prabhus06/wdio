@@ -95,7 +95,7 @@ exports.config = {
     baseUrl: config.baseUrl,
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: config.waitTime,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response

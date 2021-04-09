@@ -1,48 +1,49 @@
 class ActionHelper {
 
-    static launchBrowserUrl(urlToLaunch) {
+    launchBrowserUrl(urlToLaunch) {
         browser.url(urlToLaunch)
     }
 
-    static getTitle() {
-        return browser.getTitle();
-    }
-
-    static launchApp() {
-        driver.launchApp();
-    }
-
-    static switchToNativeContext() {
-        browser.switchContext('NATIVE_APP');
-    }
-
-    static pause(seconds) {
+    pause(seconds) {
         browser.pause(seconds * 1000);
     }
 
-    static isVisible(locator) {
-        return $(locator).isDisplayed() ? true : false;
+    waitForElement(element, waitTimeInSeconds) {
+        element.waitForDisplayed(waitTimeInSeconds * 1000);
     }
 
-    static click(locator) {
-        $(locator).click();
+    clearText(element) {
+        element.waitForDisplayed()
+        element.clearValue();
     }
 
-    static waitForElement(locator, waitTimeInSeconds) {
-        $(locator).waitForDisplayed(waitTimeInSeconds * 1000);
+    click(element){
+        element.waitForDisplayed()
+        element.click()
     }
 
-    static clearText(locator) {
-        $(locator).clearValue();
+    setValue(element, value){
+        element.waitForDisplayed()
+        element.setValue(value)
     }
 
-    static sendText(locator, inputText) {
-        $(locator).addValue(inputText);
+    getText(element){
+        element.waitForDisplayed()
+        return element.getText()
     }
 
-    static getText(locator) {
-        return $(locator).getText();
+    isDisplayed(element){
+        element.waitForDisplayed()
+        return element.isDisplayed()
+    }
+
+    getPageTitle(pageTitle){
+        browser.waitUntil(function(){
+            return (browser.getTitle() === pageTitle)
+        }, 10000, 'title is not displayed after the given time'
+    )
+        return browser.getTitle()
     }
 }
 
-module.exports = ActionHelper;
+module.exports = new ActionHelper();

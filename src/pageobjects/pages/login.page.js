@@ -1,3 +1,4 @@
+const { setValue, click, isVisible } = require('../../lib/actionHelpers');
 const Page = require('./page');
 
 /**
@@ -10,14 +11,19 @@ class LoginPage extends Page {
     get inputUsername () { return $('#username') }
     get inputPassword () { return $('#password') }
     get btnSubmit () { return $('button[type="submit"]') }
+    get iAgree () { return $('#zV9nZe')}
+    get search () { return $('[name="q"]')}
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
     login (username, password) {
+        expect(this.iAgree).toBeDisplayed();
+        click(this.iAgree);
+        setValue(this.search, "testing");
         this.inputUsername.setValue(username);
-        this.inputPassword.setValue(password);
+        setValue(this.inputPassword,password);
         expect(this.btnSubmit).toBeDisplayed().click();
     }
 
