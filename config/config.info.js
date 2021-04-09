@@ -1,5 +1,5 @@
 module.exports = {
-    browser: 'chrome',
-    baseUrl: 'http://www.google.com',
-    waitTime: 10000
+	browser: 'chrome',
+	baseUrl: 'http://www.google.com',
+	waitTime: 10000,
 }
