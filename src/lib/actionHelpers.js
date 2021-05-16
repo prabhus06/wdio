@@ -36,6 +36,11 @@ class ActionHelper {
 		return element.isDisplayed()
 	}
 
+	isExisting(element) {
+        element.waitForDisplayed();
+        return element.isExisting();
+    }
+
 	getPageTitle(pageTitle) {
 		browser.waitUntil(
 			function () {
